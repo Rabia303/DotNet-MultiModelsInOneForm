@@ -1,0 +1,31 @@
+﻿@model both
+@{
+    ViewData["Title"] = "form";
+}
+
+<h1>form</h1>
+
+@using(Html.BeginForm("addemp","Home",FormMethod.Post)){
+    @*@Html.LabelFor(emp => emp.emp.name)*@
+    @Html.TextBoxFor(emp => emp.emp.name)
+    @Html.TextBoxFor(emp => emp.emp.age)
+    <input type="submit" value="Add Emp">
+}
+
+@using (Html.BeginForm("adduser", "Home", FormMethod.Post))
+{
+    
+    @*@Html.LabelFor(emp => emp.emp.name)*@
+    @Html.TextBoxFor(emp => emp.user.name)
+    @Html.TextBoxFor(emp => emp.user.email)
+   
+    <input type="submit" value="Add User">
+}
+
+<form method="post">
+    <input type="text" asp-for="user.name">
+    <input type="file" name="img" />
+    <input type="file" name="img1" />
+    <input type="file" name="img2" />
+    <input type="submit" value="Add User" asp-action="adduser" asp-controller="Home">
+</form>
